@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+# Application settings are loaded from the .env file.
 class Settings(BaseSettings):
     APP_NAME:str
     APP_VERSION:str
@@ -10,6 +11,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
 
+# Return the environment-driven settings object used by the app.
 def get_settings() -> Settings:
     return Settings()        
         
